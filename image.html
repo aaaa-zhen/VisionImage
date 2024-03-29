@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Description Console Output</title>
+    <style>
+        body{
+            margin: 20px;
+        }
+        .textresult{
+            width: 300px;
+            height: auto;
+        }
+    </style>
+    <script>
+        function callOpenAI() {
+            const apiKey = 'sk-702YJEAotdxlkxgR603cF6799f4440D6A7FdCcD29eFa4d17'; // 这里替换成你的 API 密钥
+            const imageUrl = 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Gfp-wisconsin-madison-the-nature-boardwalk.jpg/2560px-Gfp-wisconsin-madison-the-nature-boardwalk.jpg';
+
+            fetch('https://api.aihubmix.com/v1/chat/completions', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${apiKey}`
+                },
+                body: JSON.stringify({
+                    model: "gpt-4-vision-preview",
+                    messages: [
+                        {
+                            role: "user",
+                            content: [
+                                {
+                                    type: "text",
+                                    text: "What’s in this image?"
+                                },
+                                {
+                                    type: "image_url",
+                                    image_url: {
+                                        url: imageUrl
+                                    }
+                                }
+                            ]
+                        }
+                    ],
+                    max_tokens: 300
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                // 假设 content 字段在第一个 choice 中
+                const contentText = data.choices[0].message.content;
+                document.getElementById('image-description').innerText = contentText;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+    </script>
+</head>
+<body>
+    <h4>上传你的图片</h4>
+    <img>
+    <button>upload</button>
+    <button onclick="callOpenAI()">Get Image Description</button>
+    <p class="textresult" id="image-description">Loading...</p>
+</body>
+</html>

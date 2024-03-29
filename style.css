@@ -1,0 +1,57 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+    text-align: center; /* 让页面内容水平居中 */
+}
+
+.container {
+    display: flex;
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 如果你还想垂直居中的话 */
+    height: auto;
+}
+
+
+
+h2 {
+    color: #333;
+}
+button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    background-color: #007bff;
+    color: #fff;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#image-description {
+    margin-bottom: 20px; /* 添加元素之间的间距 */
+}
+
+.result {
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.result p {
+    margin: 0;
+}
+
+.loading {
+    color: #888;
+}
+
+.image-preview {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}

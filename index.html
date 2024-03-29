@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Upload and Description</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>Summarizer</h2>
+    <div> <p>Paste your picture into the below</p></div>
+
+    <div class="container">
+        <div id="image-preview" style="width: 520px; height: 350px; border: 1px dashed #3F75FF; border-radius: 32px; background-color: #F4F9FF; margin-bottom: 20px;">
+
+            <input type="file" id="file-input" accept="image/*" style="opacity: 1; width: 10%; height: 10%; position: absolute; cursor: pointer;">
+        </div>
+    </div>
+    
+
+   <div>
+    <button onclick="uploadImage()">上传并生成</button>
+    <!-- <button id="makeit">请求 API </button> -->
+   </div>
+   <div>
+    <p style="font-size: 14px;opacity: 0.5;">分析总结：</p>
+    <p class="textresult" id="image-description">加载中...</p>
+   </div>
+    <script src="app.js"></script>
+</body>
+</html>
